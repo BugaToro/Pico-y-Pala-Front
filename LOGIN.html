@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Pico y pala</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: rgb(215, 160, 64);
+            background: radial-gradient(circle, rgba(215, 160, 64, 1) 42%, rgba(96, 61, 1, 1) 99%);
+        }
+
+        .container {
+            display: flex;
+            max-width: 800px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .left-box,
+        .right-box {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .left-box {
+            background: rgb(240,240,240);
+            background: linear-gradient(0deg, rgba(240,240,240,0.8795167725293243) 2%, rgba(51,50,50,1) 92%);
+            text-align: center;
+        }
+
+        .right-box {
+            padding: 40px;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        .login-container {
+            text-align: center;
+        }
+
+        input,
+        button {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #c1a65f;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .forgot-password a {
+            color: #010101;
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-box">
+            <h2 style="color: #fbfbfb;">¡Bienvenido!</h2>
+            <p style="color: #fcfcfc;">Por favor, inicie sesión para continuar.</p>
+            <img src="images/logo.png" alt="Logo">
+        </div>
+        <div class="right-box">
+            <div class="login-container">
+                <h2>Iniciar Sesión</h2>
+                <form id="login-form">
+                    <input type="text" id="username" placeholder="Usuario" required>
+                    <input type="password" id="password" placeholder="Contraseña" required>
+                    <button type="submit">Acceder</button>
+                </form>
+                <div class="forgot-password">
+                    <a href="#">¿Se olvidó la contraseña?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            alert('Usuario: ' + username + '\nContraseña: ' + password);
+        });
+    </script>
+</body>
+
+</html>

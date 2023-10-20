@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Pico y pala</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            /* Alinea los elementos hacia la derecha */
+            align-items: center;
+            /* Centra verticalmente los elementos */
+            width: 100%;
+            height: 15%;
+            background-color: #333;
+            padding: 10px 20px;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .navbar a {
+            margin-right: 35px;
+            /* Separación entre las palabras */
+        }
+
+        .logo {
+            margin-right: auto;
+            /* Alinea el logotipo cerca del margen izquierdo */
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #FF6200;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #FF4500;
+        }
+
+        .search-container {
+            margin-bottom: 25%;
+            /* Añade una pequeña separación */
+            width:70%;
+            text-align: center;
+            background-color: #333;
+            padding: 10px 20px;
+            box-sizing: border-box;
+            z-index: 1;
+        }
+
+        .search-input {
+            padding: 10px;
+            border: solid;
+            border-radius: 5px;
+            margin-right: 10px;
+            width: 60%;
+            font-size: 16px;
+        }
+
+        .search-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #FF6200;
+            color: #fff;
+            margin-right: 30px;
+        }
+
+        .search-button:hover {
+            background-color: #FF4500;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="images/logo.png" height="120px">
+        </div>
+        <a href="#">Categoría 1</a>
+        <a href="#">Categoría 2</a>
+        <a href="#">Categoría 3</a>
+        <a href="#">Categoría 4</a>
+        <a href="#">Categoría 5</a>
+    </div>
+    <div class="search-container">
+        <input type="text" id="search" class="search-input" placeholder="Buscar...">
+        <button class="search-button" onclick="expandSearch()">Buscar</button>
+    </div>
+</body>
+
+</html>
