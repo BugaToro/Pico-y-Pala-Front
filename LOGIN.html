@@ -19,7 +19,7 @@
 
         .container {
             display: flex;
-            max-width: 800px;
+            max-width: 900px;
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 10px;
@@ -34,9 +34,13 @@
         }
 
         .left-box {
-            background: rgb(240,240,240);
-            background: linear-gradient(0deg, rgba(240,240,240,0.8795167725293243) 2%, rgba(51,50,50,1) 92%);
+            background: rgb(240, 240, 240);
+            background: linear-gradient(0deg, rgba(240, 240, 240, 0.8795167725293243) 2%, rgba(51, 50, 50, 1) 92%);
             text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
         .right-box {
@@ -46,23 +50,34 @@
         h2 {
             margin-bottom: 10px;
             font-size: 24px;
+            color: black;
+            /* Cambiado a color negro */
         }
 
         p {
             font-size: 16px;
-            color: #ccc;
+            color: black;
+            /* Cambiado a color negro */
         }
 
         .login-container {
             text-align: center;
+            max-width: 400px;
+            margin: auto;
+            box-sizing: border-box;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         input,
         button {
-            width: 100%;
+            width: calc(100% - 20px);
             margin-bottom: 10px;
             padding: 10px;
             font-size: 16px;
+            box-sizing: border-box;
         }
 
         button {
@@ -80,37 +95,70 @@
         .forgot-password a:hover {
             text-decoration: underline;
         }
+
+        .forgot-password-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .img-container {
+            max-width: 200px;
+            margin-bottom: 8px;
+        }
+
+        .img-container img {
+            max-width: 100%;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <div class="left-box">
-            <h2 style="color: #fbfbfb;">¡Bienvenido!</h2>
-            <p style="color: #fcfcfc;">Por favor, inicie sesión para continuar.</p>
-            <img src="images/logo.png" alt="Logo">
+            <div class="img-container">
+                <img src="images/logo.png" alt="Logo">
+            </div>
+            <h2>¡Bienvenido!</h2>
+            <p>Por favor, inicie sesión para continuar.</p>
         </div>
         <div class="right-box">
             <div class="login-container">
                 <h2>Iniciar Sesión</h2>
                 <form id="login-form">
-                    <input type="text" id="username" placeholder="Usuario" required>
-                    <input type="password" id="password" placeholder="Contraseña" required>
+                    <input type="text" id="username" placeholder="Usuario" required><br>
+                    <input type="password" id="password" placeholder="Contraseña" required><br>
                     <button type="submit">Acceder</button>
                 </form>
                 <div class="forgot-password">
-                    <a href="#">¿Se olvidó la contraseña?</a>
+                    <a href="#" onclick="toggleRecoveryEmail()">¿Se olvidó la contraseña?</a>
+                </div>
+                <div class="forgot-password-container" style="display:none;">
+                    <input type="email" id="recovery-email" placeholder="Ingrese su mail" required><br>
+                    <button type="button" onclick="sendRecoveryEmail()">Enviar</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
+        function toggleRecoveryEmail() {
+            var recoveryContainer = document.querySelector('.forgot-password-container');
+            recoveryContainer.style.display = (recoveryContainer.style.display === 'none' || recoveryContainer.style.display === '') ? 'block' : 'none';
+        }
+
+        function sendRecoveryEmail() {
+            var recoveryEmail = document.getElementById('recovery-email').value;
+            alert('Correo de recuperación enviado a: ' + recoveryEmail);
+        }
+
         document.getElementById('login-form').addEventListener('submit', function (event) {
             event.preventDefault();
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
             alert('Usuario: ' + username + '\nContraseña: ' + password);
+
+            // Redireccionar a PASSWORD.html
+            window.location.href = 'PASSWORD.html';
         });
     </script>
 </body>
